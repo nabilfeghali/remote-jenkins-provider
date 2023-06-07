@@ -12,7 +12,9 @@ node {
     
       echo "Job Name: ${env.JOB_NAME}"
       echo "Branch Name: ${env.BRANCH_NAME}"
-      echo "Change id: ${env.CHANGE_ID}"    
+      echo "Change id: ${env.CHANGE_ID}"  
+    
+      echo "Git Branch: ${GIT_BRANCH}"
   }
     
   stage("Clone the project") {
