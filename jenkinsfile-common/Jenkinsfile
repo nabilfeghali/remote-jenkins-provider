@@ -10,6 +10,9 @@ node {
       echo "Git Repository URL: ${env.GIT_URL}"
       echo "Git Branch: ${env.GIT_BRANCH}"
     
+      echo "Job Name: ${env.JOB_NAME}"
+      echo "Branch Name: ${env.BRANCH_NAME}"
+      echo "Change id: ${env.CHANGE_ID}"    
   }
     
   stage("Clone the project") {
