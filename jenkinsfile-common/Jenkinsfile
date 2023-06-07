@@ -7,6 +7,9 @@ node {
       echo "RJPP_BRANCH: ${env.RJPP_BRANCH}"
       echo "RJPP_LOCAL_MARKER: ${env.RJPP_LOCAL_MARKER}"
     
+      echo "Git Repository URL: ${env.GIT_URL}"
+      echo "Git Branch: ${env.GIT_BRANCH}"
+    
   }
     
   stage("Clone the project") {
