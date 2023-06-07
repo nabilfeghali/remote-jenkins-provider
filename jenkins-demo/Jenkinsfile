@@ -1,18 +1,26 @@
 node {
-  stage(Clone the project) {
-    git branch 'main', url 'httpsgithub.comnabilfeghalijenkins-demo.git'
+  
+  stage(" Echo variable ") {
+      echo "RJPP_SCM_URL ${env.RJPP_SCM_URL}"
+      echo "RJPP_JENKINSFILE ${env.RJPP_JENKINSFILE}"
+      echo "RJPP_BRANCH ${env.RJPP_BRANCH}"
+      echo "RJPP_LOCAL_MARKER ${env.RJPP_LOCAL_MARKER}"
+  }
+  
+  stage("Clone the project") {
+    // git branch: 'main', url: 'https://github.com/nabilfeghali/jenkins-demo.git'
   }
 
-  stage(Compilation) {
-    sh .mvnw clean install -DskipTests
+  stage("Compilation") {
+    // bat "mvnw clean install -DskipTests"
   }
 
-  stage(Tests and Deployment) {
-    stage(Runing unit tests) {
-      sh .mvnw test -Punit
-    }
-    stage(Deployment) {
-      sh 'nohup .mvnw spring-bootrun -Dserver.port=8001 &'
-    }
+  stage("Tests and Deployment") {
+      stage("Running unit tests") {
+          // bat "mvnw test -Punit"
+      }
+      stage("Deployment") {
+          // bat 'start /B mvnw spring-boot:run -Dserver.port=8001'
+      }
   }
 }
