@@ -2,14 +2,10 @@ node {
       
                 
             stage("Rename Branch") {
-                steps {
-                    script {
-                              item = Jenkins.instance.getItemByFullName("originalJobName")
-                              item.setDescription("This description was changed by script")
-                              item.save()
-                              item.renameTo("newJobName")
-                    }
-                }
+                      item = Jenkins.instance.getItemByFullName("originalJobName")
+                      item.setDescription("This description was changed by script")
+                      item.save()
+                      item.renameTo("newJobName")
             }
             /* 
             stage("Customize Project Name") {
