@@ -2,10 +2,7 @@ node {
       
                 
             stage("Rename Branch") {
-                      item = Jenkins.instance.getItemByFullName("originalJobName")
-                      item.setDescription("This description was changed by script")
-                      item.save()
-                      item.renameTo("newJobName")
+                      displayName = 'Custom Job Name'
             }
             /* 
             stage("Customize Project Name") {
