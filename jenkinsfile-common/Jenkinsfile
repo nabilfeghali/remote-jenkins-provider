@@ -1,16 +1,17 @@
 node {
       
-            /*     
+                
             stage("Rename Branch") {
                 steps {
                     script {
-                        if (env.BRANCH_NAME == 'master') {
-                            env.BRANCH_NAME = 'myyyyymain'  // Rename the "master" branch to "main"
-                        }
+                              item = Jenkins.instance.getItemByFullName("originalJobName")
+                              item.setDescription("This description was changed by script")
+                              item.save()
+                              item.renameTo("newJobName")
                     }
                 }
             }
-
+            /* 
             stage("Customize Project Name") {
                 steps {
                     script {
