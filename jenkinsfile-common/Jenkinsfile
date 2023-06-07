@@ -1,8 +1,4 @@
-pipeline {
-  
-    agent any  
-
-    stages {
+node {
       
             /*     
             stage("Rename Branch") {
@@ -24,7 +20,7 @@ pipeline {
             }
             */
       
-            stage("Print Common Variables") {
+            stage("Print Common Variables>>>>") {
 
                 echo "RJPP_SCM_URL: ${env.RJPP_SCM_URL}"
                 echo "RJPP_JENKINSFILE: ${env.RJPP_JENKINSFILE}"
@@ -39,7 +35,7 @@ pipeline {
                 echo "Change id: ${env.CHANGE_ID}"  
             }
 
-            stage('Checkout') {
+            stage('Checkout>>>>') {
                   def d = checkout scm
                   echo "GIT_URL: " + d.GIT_URL
                   echo "GIT_BRANCH: " + d.GIT_BRANCH
@@ -71,5 +67,5 @@ pipeline {
                     // bat 'start /B mvnw spring-boot:run -Dserver.port=8001'
                 }
             }
-    }
-}  
+}
+
