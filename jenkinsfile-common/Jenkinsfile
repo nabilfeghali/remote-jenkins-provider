@@ -29,24 +29,7 @@ pipeline{
         
         stage("SonarQube Analysis") {
             steps {
-				/*
-                withCredentials([usernamePassword(credentialsId: 'SonarCredentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    withSonarQubeEnv('SonarQube') {
-                        sh """
-                            sonar-scanner \
-                              -Dsonar.projectKey=${PROJECT_NAME} \
-                              -Dsonar.sources=src \
-                              -Dsonar.login=${USERNAME} \
-                              -Dsonar.password=${PASSWORD} \
-                              -Dsonar.host.url=http://10.1.116.181:9001 \
-                              -Dsonar.java.binaries=target/classes \
-                              -Dsonar.java.libraries=**/*.jar \
-                              -Dsonar.java.source=1.8 \
-                              -Dsonar.java.target=1.8
-                          """
-                    }
-                }
-				*/
+				
             }
         }
         
