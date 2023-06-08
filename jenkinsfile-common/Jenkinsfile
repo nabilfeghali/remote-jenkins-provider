@@ -43,6 +43,13 @@ pipeline{
 			  echo "GIT_PREVIOUS_SUCCESSFUL_COMMIT: " + d.GIT_PREVIOUS_SUCCESSFUL_COMMIT
 		  }
               }
-	}	    
+	}
+	    
+	stage("Build With Maven") {
+            steps {
+                bat 'mvn clean install -U -DskipTests=true'
+            }
+        }
+	    
     }
 }
