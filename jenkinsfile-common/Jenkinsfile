@@ -60,7 +60,6 @@ pipeline{
                      bat 'start /B mvnw spring-boot:run -Dserver.port=8001' 
                 }
 		*/
-            }    
-	    
+         }    
     }
 }
