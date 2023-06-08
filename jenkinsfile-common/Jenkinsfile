@@ -1,10 +1,10 @@
 node {
-      
+            /* 
                 
             stage("Rename Branch") {
                       displayName = 'Custom Job Name'
             }
-            /* 
+           
             stage("Customize Project Name") {
                 steps {
                     script {
