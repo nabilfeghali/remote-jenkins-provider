@@ -31,32 +31,32 @@ pipeline{
         }    
 	    
         stage("Clone from Git"){
-            steps{
+            //steps{
                 // git branch: 'master', credentialsId: 'GitLabCredentials', url:'http://gitlab.capital-banking.com/SwiftManager/MicroService/swiftmxmanagerws.git'
-            }
+            //}
         }
         
         
         stage("Build With Maven") {
-            steps {
+            //steps {
                 // sh 'mvn clean install -U -DskipTests=true'
-            }
+            //}
         }
         
         stage("SonarQube Analysis") {
-            steps {
+            //steps {
 				
-            }
+            //}
         }
         
         stage("Publish to Nexus") {
-            steps {
-                echo "Start Publish to Nexus"
-                script {
+            //steps {
+            //    echo "Start Publish to Nexus"
+            //    script {
 				
-				}
-			}
-		}
+			//	}
+			//}
+	    // }
 		
 	}
 }	
