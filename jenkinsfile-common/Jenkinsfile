@@ -7,28 +7,40 @@ pipeline{
 	
     environment {
         JAVA_HOME="${tool 'Java-1.8'}"
-        PROJECT_NAME = bat(script: 'echo %JOB_NAME%', returnStdout: true).trim()		
+	PROJECT_NAME = "${env.JOB_NAME}"
     }
 	
     stages{
 	
-	stage("Print Variables"){      
+	stage("Print Environment Variables"){      
 	      steps{	
 		      echo "JAVA_HOME: ${env.JAVA_HOME}"
 		      echo "PROJECT_NAME: ${env.PROJECT_NAME}"
-		      
 		      echo "RJPP_SCM_URL: ${env.RJPP_SCM_URL}"
 		      echo "RJPP_JENKINSFILE: ${env.RJPP_JENKINSFILE}"
 		      echo "RJPP_BRANCH: ${env.RJPP_BRANCH}"
 		      echo "RJPP_LOCAL_MARKER: ${env.RJPP_LOCAL_MARKER}"
-
-		      echo "Git Repository URL: ${env.GIT_URL}"
-		      echo "Git Branch: ${env.GIT_BRANCH}"
-
-		      echo "Job Name: ${env.JOB_NAME}"
-		      echo "Branch Name: ${env.BRANCH_NAME}"
-		      echo "Change id: ${env.CHANGE_ID}"             
+		      echo "GIT_URL: ${env.GIT_URL}"
+		      echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+		      echo "JOB_NAME: ${env.JOB_NAME}"
+		      echo "BRANCH_NAME: ${env.BRANCH_NAME}"
+		      echo "CHANGE_ID: ${env.CHANGE_ID}"             
 	      }	      
-        }    
+        }
+	    
+	stage('Git Checkout') {
+	      steps{	
+                  def d = checkout scm
+                  echo "GIT_URL: " + d.GIT_URL
+                  echo "GIT_BRANCH: " + d.GIT_BRANCH
+                  echo "GIT_COMMIT: " + d.GIT_COMMIT
+                  echo "GIT_AUTHOR_EMAIL: " + d.GIT_AUTHOR_EMAIL
+                  echo "GIT_COMMITTER_EMAIL: " + d.GIT_COMMITTER_EMAIL
+                  echo "GIT_COMMITTER_NAME: " + d.GIT_COMMITTER_NAME
+                  echo "GIT_LOCAL_BRANCH: " + d.GIT_LOCAL_BRANCH
+                  echo "GIT_PREVIOUS_COMMIT: " + d.GIT_PREVIOUS_COMMIT
+                  echo "GIT_PREVIOUS_SUCCESSFUL_COMMIT: " + d.GIT_PREVIOUS_SUCCESSFUL_COMMIT
+              }
+	}	    
     }
 }
