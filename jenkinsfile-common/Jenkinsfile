@@ -27,22 +27,5 @@ pipeline{
 		      echo "Change id: ${env.CHANGE_ID}"             
 	      }	      
         }    
-	    
-        stage("Clone from Git"){
-           
-        }
-        
-        
-        stage("Build With Maven") {
-            
-        }
-        
-        stage("SonarQube Analysis") {
-            
-        }
-        
-        stage("Publish to Nexus") {
-           
-	}
-  }
+    }
 }
