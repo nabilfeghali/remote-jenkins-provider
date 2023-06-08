@@ -14,7 +14,7 @@ node {
             }
             */
       
-            stage("Print Common Variables>>>>") {
+            stage("Print Common Variables>>>>123") {
 
                 echo "RJPP_SCM_URL: ${env.RJPP_SCM_URL}"
                 echo "RJPP_JENKINSFILE: ${env.RJPP_JENKINSFILE}"
@@ -29,7 +29,7 @@ node {
                 echo "Change id: ${env.CHANGE_ID}"  
             }
 
-            stage('Checkout>>>>') {
+            stage('Checkout>>>>132') {
                   def d = checkout scm
                   echo "GIT_URL: " + d.GIT_URL
                   echo "GIT_BRANCH: " + d.GIT_BRANCH
