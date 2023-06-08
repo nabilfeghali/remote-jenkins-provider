@@ -1,62 +1,46 @@
 pipeline{
     agent { label 'cbsdev_agent1' }
+	
     tools {
         maven "Maven"
     }
+	
     environment {
         JAVA_HOME="${tool 'Java-1.8'}"
-        PROJECT_NAME = bat(script: 'echo %JOB_NAME%', returnStdout: true).trim()
-		
-	//echo "JAVA_HOME= ${env.JAVA_HOME}"
-        //echo "PROJECT_NAME= ${env.PROJECT_NAME}"
-		
+        PROJECT_NAME = bat(script: 'echo %JOB_NAME%', returnStdout: true).trim()		
     }
 	
     stages{
 	
-	stage("Print Variables"){
-            steps{
-                      echo "RJPP_SCM_URL: ${env.RJPP_SCM_URL}"
-		      echo "RJPP_JENKINSFILE: ${env.RJPP_JENKINSFILE}"
-		      echo "RJPP_BRANCH: ${env.RJPP_BRANCH}"
-		      echo "RJPP_LOCAL_MARKER: ${env.RJPP_LOCAL_MARKER}"
+	stage("Print Variables"){          
+	      echo "RJPP_SCM_URL: ${env.RJPP_SCM_URL}"
+	      echo "RJPP_JENKINSFILE: ${env.RJPP_JENKINSFILE}"
+	      echo "RJPP_BRANCH: ${env.RJPP_BRANCH}"
+	      echo "RJPP_LOCAL_MARKER: ${env.RJPP_LOCAL_MARKER}"
 
-		      echo "Git Repository URL: ${env.GIT_URL}"
-		      echo "Git Branch: ${env.GIT_BRANCH}"
+	      echo "Git Repository URL: ${env.GIT_URL}"
+	      echo "Git Branch: ${env.GIT_BRANCH}"
 
-		      echo "Job Name: ${env.JOB_NAME}"
-		      echo "Branch Name: ${env.BRANCH_NAME}"
-		      echo "Change id: ${env.CHANGE_ID}"  
-            }
+	      echo "Job Name: ${env.JOB_NAME}"
+	      echo "Branch Name: ${env.BRANCH_NAME}"
+	      echo "Change id: ${env.CHANGE_ID}"             
         }    
 	    
         stage("Clone from Git"){
-            //steps{
-                // git branch: 'master', credentialsId: 'GitLabCredentials', url:'http://gitlab.capital-banking.com/SwiftManager/MicroService/swiftmxmanagerws.git'
-            //}
+           
         }
         
         
         stage("Build With Maven") {
-            //steps {
-                // sh 'mvn clean install -U -DskipTests=true'
-            //}
+            
         }
         
         stage("SonarQube Analysis") {
-            //steps {
-				
-            //}
+            
         }
         
         stage("Publish to Nexus") {
-            //steps {
-            //    echo "Start Publish to Nexus"
-            //    script {
-				
-			//	}
-			//}
-	    // }
-		
+           
 	}
-}	
+  }
+}
